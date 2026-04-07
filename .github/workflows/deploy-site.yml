@@ -1,0 +1,48 @@
+name: Build and Deploy Site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sites/**"
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.changes.outputs.sites }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: changes
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep '^sites/' | cut -d/ -f2 | sort -u | jq -R -s -c 'split("\n") | map(select(. != ""))')
+          echo "sites=$CHANGED" >> "$GITHUB_OUTPUT"
+
+  build-and-push:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.sites != '[]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        site: ${{ fromJson(needs.detect-changes.outputs.sites) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: sites/${{ matrix.site }}
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/${{ matrix.site }}:latest
+            ghcr.io/${{ github.repository }}/${{ matrix.site }}:${{ github.sha }}

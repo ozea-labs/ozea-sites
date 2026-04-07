@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arenglish.ozealabs.com.br/sitemap.xml
