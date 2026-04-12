@@ -39,15 +39,16 @@ export function Header() {
         </a>
 
         {/* Desktop: full yellow CTA with text */}
-        <Button
-          href={WHATSAPP_URL}
-          variant="yellow"
-          size="md"
-          withWhatsappIcon
-          className="hidden md:inline-flex"
-        >
-          {siteContent.header.ctaText}
-        </Button>
+        <div className="hidden md:block">
+          <Button
+            href={WHATSAPP_URL}
+            variant="yellow"
+            size="md"
+            withWhatsappIcon
+          >
+            {siteContent.header.ctaText}
+          </Button>
+        </div>
 
         {/* Mobile: compact WhatsApp icon button, doesn't compete with the Hero CTA */}
         <a
