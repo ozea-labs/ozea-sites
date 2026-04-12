@@ -6,13 +6,35 @@ export function Hero() {
   const { hero } = siteContent;
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-brand-blue via-brand-blue-dark to-brand-blue px-6 pt-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(67,170,139,0.15),transparent_60%)]" />
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <h1 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-blue px-6 pt-20">
+      {/* Background photo — portrait crop on mobile, landscape on larger screens */}
+      <picture className="absolute inset-0 -z-10">
+        <source
+          media="(min-width: 768px)"
+          srcSet="/images/hero-bg.webp"
+          width={1920}
+          height={1080}
+        />
+        <img
+          src="/images/hero-bg-mobile.webp"
+          alt=""
+          className="h-full w-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          width={1024}
+          height={1366}
+        />
+      </picture>
+
+      {/* Brand-tinted overlay: keeps white text WCAG-legible over any region of the photo */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-blue/90 via-brand-blue-dark/85 to-brand-blue/90" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_50%,rgba(67,170,139,0.18),transparent_60%)]" />
+
+      <div className="relative mx-auto max-w-3xl text-center">
+        <h1 className="font-heading text-4xl font-bold leading-tight text-white drop-shadow-sm md:text-5xl lg:text-6xl">
           {hero.headline}
         </h1>
-        <p className="mt-6 text-lg leading-relaxed text-white/80 md:text-xl">
+        <p className="mt-6 text-lg leading-relaxed text-white/85 md:text-xl">
           {hero.subheadline}
         </p>
         <div className="mt-10 flex flex-col items-center gap-3">
@@ -24,12 +46,13 @@ export function Hero() {
           >
             {hero.ctaText}
           </Button>
-          <span className="text-sm text-white/60">{hero.ctaSubtext}</span>
+          <span className="text-sm text-white/70">{hero.ctaSubtext}</span>
         </div>
       </div>
+
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="h-6 w-4 rounded-full border-2 border-white/30 p-1">
-          <div className="h-1.5 w-1 mx-auto rounded-full bg-white/50" />
+        <div className="h-6 w-4 rounded-full border-2 border-white/40 p-1">
+          <div className="mx-auto h-1.5 w-1 rounded-full bg-white/60" />
         </div>
       </div>
     </section>
