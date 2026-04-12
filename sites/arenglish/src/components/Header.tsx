@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "./ui/Button";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { siteContent } from "@/content/site-content";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { useState, useEffect } from "react";
@@ -36,14 +37,28 @@ export function Header() {
             priority
           />
         </a>
+
+        {/* Desktop: full yellow CTA with text */}
         <Button
           href={WHATSAPP_URL}
           variant="yellow"
           size="md"
           withWhatsappIcon
+          className="hidden md:inline-flex"
         >
           {siteContent.header.ctaText}
         </Button>
+
+        {/* Mobile: compact WhatsApp icon button, doesn't compete with the Hero CTA */}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Falar no WhatsApp"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform hover:scale-105 md:hidden"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+        </a>
       </div>
     </header>
   );

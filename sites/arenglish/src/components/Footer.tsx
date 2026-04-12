@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { AtSign, MessageCircle } from "lucide-react";
+import { AtSign } from "lucide-react";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { siteContent } from "@/content/site-content";
 import {
   WHATSAPP_URL,
@@ -37,7 +38,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-white transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 (13) 99149-7394
               </a>
               <a
@@ -46,7 +47,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-white transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4" />
                 (11) 98941-6231
               </a>
             </div>

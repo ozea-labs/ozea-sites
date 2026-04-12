@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { useState, useEffect } from "react";
 
@@ -23,7 +23,7 @@ export function WhatsAppFAB() {
         visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
-      <MessageCircle className="h-7 w-7" />
+      <WhatsAppIcon className="h-7 w-7" />
     </a>
   );
 }

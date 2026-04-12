@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "../icons/WhatsAppIcon";
 
 interface ButtonProps {
   href: string;
@@ -40,7 +40,7 @@ export function Button({
       rel="noopener noreferrer"
       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
     >
-      {withWhatsappIcon && <MessageCircle className="h-5 w-5" />}
+      {withWhatsappIcon && <WhatsAppIcon className="h-5 w-5" />}
       {children}
     </a>
   );
