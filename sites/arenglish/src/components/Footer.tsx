@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { AtSign } from "lucide-react";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
+import { InstagramIcon } from "./icons/InstagramIcon";
 import { siteContent } from "@/content/site-content";
 import {
   WHATSAPP_URL,
@@ -64,7 +64,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm hover:text-white transition-colors"
               >
-                <AtSign className="h-4 w-4" />
+                <InstagramIcon className="h-4 w-4" />
                 {INSTAGRAM_HANDLE}
               </a>
             </div>
