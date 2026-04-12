@@ -37,9 +37,9 @@ export const siteContent = {
   about: {
     title: "Pai e Filho. Vivência Real.",
     description:
-      "A AR English nasceu da união de duas gerações com vivência real nos Estados Unidos. Rick viveu mais de 30 anos nos EUA e Alex nasceu lá — é falante nativo de inglês.",
+      "A AR English nasceu da união de duas gerações com vivência real nos Estados Unidos. Renato viveu mais de 30 anos nos EUA e Alex nasceu lá — é falante nativo de inglês.",
     highlights: [
-      "Rick: +30 anos de vivência nos EUA",
+      "Renato: +30 anos de vivência nos EUA",
       "Alex: nascido nos EUA, professor nativo",
       "Ensino baseado em experiência real, não só teoria",
       "Aulas leves com cultura, filmes e música",
@@ -58,7 +58,7 @@ export const siteContent = {
       },
       {
         number: "2",
-        title: "Converse com Alex ou Rick",
+        title: "Converse com Alex ou Renato",
         description:
           "Entendemos seu nível, seus objetivos e montamos um plano personalizado.",
       },

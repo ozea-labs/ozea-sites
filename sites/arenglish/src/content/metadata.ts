@@ -25,16 +25,34 @@ export const siteMetadata: Metadata = {
     siteName: SITE_NAME,
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AR English — Você falando inglês com confiança",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} | Fale com Confiança`,
     description:
       "Aprenda inglês e espanhol com quem viveu o idioma de verdade.",
+    images: ["/images/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: [
+      { url: "/images/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/favicon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -46,7 +64,7 @@ export const jsonLd = {
   description:
     "Escola de idiomas 100% online focada em conversação prática com professores que viveram nos EUA.",
   founder: [
-    { "@type": "Person", name: "Rick" },
+    { "@type": "Person", name: "Renato" },
     { "@type": "Person", name: "Alex" },
   ],
   areaServed: "BR",

@@ -17,9 +17,9 @@ export function Footer() {
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between md:items-start">
           <div className="text-center md:text-left">
             <Image
-              src="/images/logo-ar-english.png"
+              src="/images/logo.svg"
               alt="AR English"
-              width={100}
+              width={120}
               height={34}
               className="h-8 w-auto mx-auto md:mx-0 brightness-0 invert"
             />

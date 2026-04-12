@@ -26,9 +26,9 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <a href="#" className="flex items-center">
           <Image
-            src="/images/logo-ar-english.png"
+            src="/images/logo.svg"
             alt="AR English"
-            width={120}
+            width={140}
             height={40}
             className="h-10 w-auto"
             priority
