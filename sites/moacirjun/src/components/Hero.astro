@@ -1,0 +1,193 @@
+---
+import { Image } from 'astro:assets';
+import perfil from '../assets/images/perfil.png';
+import WhatsAppLink from './WhatsAppLink.astro';
+---
+
+<header class="hero">
+  <div class="hero__top">
+    <span class="hero__brand">Moacir Lima Jr</span>
+    <span class="hero__kicker">Especialista em E-commerce</span>
+  </div>
+
+  <div class="hero__grid">
+    <div>
+      <div class="hero__badge">
+        <span class="hero__dot"></span>
+        <span>Desenvolvedor Sênior · 10+ anos</span>
+      </div>
+      <h1 class="hero__title">
+        Sua loja profissional, pronta para vender — sem enrolação e sem ficar meses no projeto
+      </h1>
+      <p class="hero__lede">
+        Sou desenvolvedor sênior com mais de 10 anos de experiência — incluindo dois anos dentro
+        do maior e-commerce de móveis do Brasil. Aplico engenharia de ponta para construir ou
+        evoluir a loja da sua marca, garantindo estabilidade, design impecável e conversão.
+      </p>
+      <div class="hero__actions">
+        <WhatsAppLink source="hero" variant="solid" showIcon>
+          Falar com o Moacir no WhatsApp
+        </WhatsAppLink>
+        <div class="hero__price">
+          <div class="hero__price-label">A partir de</div>
+          <div class="hero__price-value">R$ 1.800</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__photo-wrap">
+      <div class="hero__photo">
+        <div class="hero__photo-frame"></div>
+        <Image
+          src={perfil}
+          alt="Foto de perfil de Moacir Lima Jr"
+          width={680}
+          height={680}
+          format="webp"
+          quality={82}
+          class="hero__photo-img"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(28px, 6vw, 64px) clamp(22px, 5vw, 56px) clamp(48px, 8vw, 96px);
+  }
+
+  .hero__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: clamp(40px, 8vw, 88px);
+  }
+
+  .hero__brand {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 2.6vw, 24px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
+  }
+
+  .hero__kicker {
+    font-size: clamp(11px, 1.5vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: clamp(36px, 6vw, 72px);
+    align-items: center;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: clamp(22px, 4vw, 32px);
+    padding: 7px 15px;
+    border: 1px solid rgba(30, 58, 95, 0.22);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .hero__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    display: inline-block;
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(38px, 6.4vw, 66px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    text-wrap: balance;
+    margin-bottom: clamp(20px, 3.5vw, 30px);
+  }
+
+  .hero__lede {
+    font-size: clamp(16px, 2.1vw, 19px);
+    line-height: 1.65;
+    color: var(--color-body);
+    max-width: 38ch;
+    margin-bottom: clamp(26px, 4vw, 36px);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(18px, 3vw, 28px);
+  }
+
+  .hero__price {
+    line-height: 1.25;
+  }
+
+  .hero__price-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9a9488;
+  }
+
+  .hero__price-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 27px);
+    color: var(--color-ink);
+  }
+
+  .hero__photo-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__photo {
+    position: relative;
+    width: clamp(230px, 34vw, 340px);
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero__photo-frame {
+    position: absolute;
+    inset: -14px -14px auto auto;
+    width: 64%;
+    height: 64%;
+    border: 1px solid rgba(195, 165, 98, 0.5);
+    border-radius: 20px;
+    z-index: 0;
+  }
+
+  .hero__photo-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 24px 60px -28px rgba(35, 35, 35, 0.4);
+  }
+</style>

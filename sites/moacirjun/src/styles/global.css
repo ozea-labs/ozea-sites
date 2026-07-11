@@ -1,0 +1,68 @@
+@import '@fontsource-variable/playfair-display/wght.css';
+@import '@fontsource-variable/playfair-display/wght-italic.css';
+@import '@fontsource-variable/inter/wght.css';
+
+:root {
+  --color-bg: #faf9f6;
+  --color-ink: #232323;
+  --color-navy: #1e3a5f;
+  --color-navy-deep: #12273f;
+  --color-gold: #c3a562;
+  --color-cream: #f3f1ea;
+  --color-body: #4a4a4a;
+
+  --font-display: 'Playfair Display Variable', 'Playfair Display', serif;
+  --font-body: 'Inter Variable', 'Inter', sans-serif;
+
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.eyebrow--navy {
+  color: var(--color-navy);
+}
+
+.eyebrow--gold {
+  color: var(--color-gold);
+}

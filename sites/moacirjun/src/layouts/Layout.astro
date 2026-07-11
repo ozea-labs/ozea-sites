@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import { SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+const ogImageURL = new URL('og.png', SITE_URL);
+
+const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  areaServed: 'BR',
+  priceRange: 'R$ 1.800+',
+  founder: {
+    '@type': 'Person',
+    name: SITE_NAME,
+    jobTitle: 'Especialista em E-commerce',
+  },
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE_NAME} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={SITE_NAME} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} is:inline />
+
+    {
+      cfBeaconToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${cfBeaconToken}"}`}
+        />
+      )
+    }
+  </head>
+  <body>
+    <slot />
+    <script>
+      // Fires a "WhatsApp Click" custom event through Cloudflare Zaraz when the
+      // zone has it enabled. No-op (and zero extra network weight) otherwise —
+      // see README for how to wire the Zaraz trigger after deploy.
+      window.trackWhatsAppClick = function (source: string) {
+        window.zaraz?.track('WhatsApp Click', { source });
+      };
+    </script>
+  </body>
+</html>
+

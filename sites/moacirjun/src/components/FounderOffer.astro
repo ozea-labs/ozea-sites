@@ -1,0 +1,88 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+---
+
+<section class="founder">
+  <div class="founder__box">
+    <div class="founder__bar"></div>
+    <div class="founder__content">
+      <div class="eyebrow eyebrow--gold">Condição de fundador</div>
+      <h2 class="founder__title">Estou abrindo agenda para projetos externos</h2>
+      <p class="founder__text">
+        Estou abrindo minha agenda neste momento para assumir novos projetos externos. Para os
+        <strong>3 primeiros clientes</strong> que fecharem comigo neste ciclo, estou oferecendo uma
+        condição especial de valor no projeto.
+      </p>
+      <p class="founder__text">
+        Em contrapartida, peço apenas duas coisas: autorização para usar o resultado da sua loja
+        como estudo de caso no meu portfólio e um depoimento honesto sobre como foi trabalhar
+        comigo.
+      </p>
+      <p class="founder__text founder__text--last">
+        Não é uma promoção permanente. É uma condição de abertura de agenda para construir os
+        primeiros cases desta nova fase.
+      </p>
+      <WhatsAppLink source="founder-offer" variant="gold">
+        Quero consultar uma vaga
+        <span class="arrow">→</span>
+      </WhatsAppLink>
+    </div>
+  </div>
+</section>
+
+<style>
+  .founder {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 clamp(22px, 5vw, 56px) clamp(56px, 9vw, 104px);
+  }
+
+  .founder__box {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--color-gold);
+    border-radius: 16px;
+    padding: clamp(34px, 5vw, 60px);
+    overflow: hidden;
+  }
+
+  .founder__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-gold);
+  }
+
+  .founder__content {
+    max-width: 720px;
+  }
+
+  .founder__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+
+  .founder__text {
+    font-size: clamp(15px, 1.8vw, 17px);
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .founder__text strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .founder__text--last {
+    margin-bottom: 30px;
+  }
+
+  .arrow {
+    font-size: 17px;
+  }
+</style>

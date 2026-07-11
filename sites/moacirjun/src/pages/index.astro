@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Case from '../components/Case.astro';
+import Services from '../components/Services.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import WhyMe from '../components/WhyMe.astro';
+import FounderOffer from '../components/FounderOffer.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <div class="page">
+    <Hero />
+    <Case />
+    <Services />
+    <HowItWorks />
+    <WhyMe />
+    <FounderOffer />
+    <FinalCta />
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .page {
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--color-bg);
+  }
+</style>

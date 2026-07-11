@@ -1,0 +1,229 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+
+const services = [
+  {
+    number: '01',
+    title: 'E-commerce Completo',
+    subtitle: 'Do zero ao ar',
+    forWho:
+      'Marcas que querem iniciar as vendas online do jeito certo ou lojistas migrando para plataformas profissionais (Shopify ou Nuvemshop).',
+    items: [
+      'Setup completo e configuração da plataforma.',
+      'Design alinhado com a identidade da sua marca.',
+      'Navegação otimizada para celular (onde a maioria compra) e desktop.',
+      'Integração de frete, meios de pagamento e pixels de marketing.',
+      'Treinamento em vídeo para você saber gerenciar seus pedidos.',
+    ],
+    deadline: 'Prazo: 15 a 20 dias',
+    cta: 'Quero criar minha loja',
+    source: 'service-ecommerce-completo',
+  },
+  {
+    number: '02',
+    title: 'Evolução e Ajustes',
+    subtitle: 'Loja existente',
+    forWho:
+      'Lojistas que já vendem, mas precisam melhorar a aparência, resolver lentidão ou adicionar novas funções na loja atual.',
+    items: [
+      'Diagnóstico técnico do site atual.',
+      'Correção de falhas e bugs que travam vendas.',
+      'Customização visual para melhorar a jornada de compra do cliente.',
+      'Instalação e configuração segura de novos aplicativos.',
+      'Otimização de velocidade de carregamento.',
+    ],
+    deadline: 'Prazo: 5 a 10 dias',
+    cta: 'Quero melhorar minha loja',
+    source: 'service-evolucao',
+  },
+  {
+    number: '03',
+    title: 'Landing Page de Produto',
+    subtitle: 'Alta conversão',
+    forWho:
+      'Lançamentos de produtos exclusivos, campanhas de tráfego pago ou captação de contatos.',
+    items: [
+      'Página única focada em um único objetivo: converter.',
+      'Design atrativo e focado no seu produto.',
+      'Estrutura rápida e leve para não perder cliques de anúncios.',
+      'Botões de compra diretos e integrações necessárias.',
+    ],
+    deadline: 'Prazo: Até 5 dias',
+    cta: 'Quero uma landing page',
+    source: 'service-landing-page',
+  },
+];
+---
+
+<section id="servicos" class="services">
+  <div class="services__intro">
+    <div class="eyebrow eyebrow--navy">Serviços</div>
+    <h2 class="services__title">Projetos estruturados sob medida</h2>
+    <p class="services__lede">
+      Projetos estruturados sob medida para o momento do seu negócio.
+      <strong>Valores a partir de R$ 1.800.</strong>
+    </p>
+  </div>
+
+  <div class="services__grid">
+    {
+      services.map((service) => (
+        <article class="card">
+          <div class="card__number">{service.number}</div>
+          <h3 class="card__title">{service.title}</h3>
+          <div class="card__subtitle">{service.subtitle}</div>
+          <p class="card__forwho">
+            <strong>Para quem:</strong> {service.forWho}
+          </p>
+          <ul class="card__list">
+            {service.items.map((item) => (
+              <li>
+                <span class="card__bullet">—</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="card__footer">
+            <div class="card__deadline">{service.deadline}</div>
+            <WhatsAppLink source={service.source} variant="solid" size="compact" fullWidth>
+              {service.cta}
+            </WhatsAppLink>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="services__note">
+    Atenção: Em qualquer um dos pacotes, você tem a opção de seguir com um plano mensal de
+    manutenção e evolução. Diferente de muitos profissionais, eu não sumo depois da entrega. Sua
+    loja terá acompanhamento contínuo para crescer.
+  </p>
+</section>
+
+<style>
+  .services {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 104px) clamp(22px, 5vw, 56px);
+  }
+
+  .services__intro {
+    max-width: 640px;
+    margin-bottom: clamp(40px, 6vw, 60px);
+  }
+
+  .services__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4.4vw, 44px);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+
+  .services__lede {
+    font-size: clamp(15px, 1.9vw, 18px);
+    color: var(--color-body);
+  }
+  .services__lede strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+    gap: clamp(18px, 2.5vw, 26px);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #ece9e1;
+    border-radius: 12px;
+    padding: clamp(26px, 3vw, 34px);
+  }
+
+  .card__number {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+  }
+
+  .card__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(21px, 2.6vw, 25px);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .card__subtitle {
+    font-size: 14px;
+    color: #8a8478;
+    margin-bottom: 18px;
+  }
+
+  .card__forwho {
+    font-size: 14.5px;
+    color: #555;
+    margin-bottom: 18px;
+  }
+  .card__forwho strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 24px;
+    font-size: 14.5px;
+    color: #3d3d3d;
+  }
+  .card__list li {
+    display: flex;
+    gap: 11px;
+  }
+
+  .card__bullet {
+    color: var(--color-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .card__footer {
+    margin-top: auto;
+  }
+
+  .card__deadline {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background: #eef1f5;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .services__note {
+    margin-top: clamp(28px, 4vw, 40px);
+    max-width: 760px;
+    font-size: 14.5px;
+    font-style: italic;
+    color: #6a6a6a;
+    line-height: 1.7;
+    padding: 20px 24px;
+    background: var(--color-cream);
+    border-radius: 10px;
+  }
+</style>

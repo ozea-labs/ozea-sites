@@ -1,0 +1,127 @@
+---
+const points = [
+  {
+    title: 'Senioridade real, construída dentro do e-commerce',
+    text: 'Comecei em agência criando sites e lojas para clientes, trabalhei por dois anos dentro da Mobly — o maior e-commerce de móveis e decoração do Brasil — e hoje desenvolvo sistemas de alto tráfego para empresas de grande porte. Não sou um "fazedor de sites" que apenas instala temas; sou engenheiro de software que conhece loja virtual por dentro.',
+  },
+  {
+    title: 'Design e Experiência do Usuário (UX)',
+    text: 'Entendo que o código perfeito não vende sozinho. A loja precisa ser visualmente agradável e guiar o cliente de forma instintiva até o botão de compra.',
+  },
+  {
+    title: 'Escopo e prazo respeitados',
+    text: 'O que combinamos na proposta é exatamente o que será entregue, na data prometida.',
+  },
+  {
+    title: 'Parceiro de longo prazo',
+    text: 'Se o seu negócio cresce, a sua tecnologia precisa acompanhar. Ofereço suporte contínuo para que você nunca fique na mão quando a sua loja escalar.',
+  },
+];
+
+const credentials = [
+  'Shopify',
+  'Nuvemshop',
+  'WooCommerce',
+  'Liquid',
+  'SEO técnico',
+  'Automação e IA aplicada',
+];
+---
+
+<section class="why">
+  <div class="why__header">
+    <div class="eyebrow eyebrow--navy">Por que eu?</div>
+    <h2 class="why__title">Engenharia de verdade, não instalação de temas</h2>
+  </div>
+
+  <div class="why__points">
+    {
+      points.map((point) => (
+        <div>
+          <h3 class="why__point-title">{point.title}</h3>
+          <p class="why__point-text">{point.text}</p>
+        </div>
+      ))
+    }
+
+    <div class="why__credentials">
+      <div class="why__credentials-label">Credenciais</div>
+      <div class="why__pills">
+        {credentials.map((c) => <span class="pill">{c}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 104px) clamp(22px, 5vw, 56px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(36px, 5vw, 64px);
+  }
+
+  .why__header {
+    align-self: start;
+  }
+
+  .why__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4.4vw, 44px);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+  }
+
+  .why__points {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .why__point-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
+    margin-bottom: 7px;
+  }
+
+  .why__point-text {
+    font-size: 15px;
+    color: var(--color-body);
+    line-height: 1.7;
+  }
+
+  .why__credentials {
+    margin-top: 8px;
+    padding-top: 26px;
+    border-top: 1px solid #e6e2d8;
+  }
+
+  .why__credentials-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8478;
+    margin-bottom: 14px;
+  }
+
+  .why__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .pill {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-ink);
+    border: 1px solid #ddd8cc;
+    padding: 8px 15px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+</style>

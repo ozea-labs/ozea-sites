@@ -1,0 +1,219 @@
+---
+import { Image } from 'astro:assets';
+import desktopShot from '../assets/images/galiotto-desktop.png';
+import mobileShot1 from '../assets/images/galiotto-mobile-1.png';
+import mobileShot2 from '../assets/images/galiotto-mobile-2.png';
+import WhatsAppLink from './WhatsAppLink.astro';
+---
+
+<section class="case">
+  <div class="case__inner">
+    <div class="case__intro">
+      <div class="eyebrow eyebrow--gold" style="margin-bottom: 18px;">Case de sucesso</div>
+      <h2 class="case__title">O que eu entrego na prática: Case Galiotto Bike Shop</h2>
+      <p class="case__text">
+        Para a Galiotto, o objetivo não era apenas ter um site, mas construir a marca no ambiente
+        digital do zero. Estruturei toda a identidade visual e desenvolvi um e-commerce completo e
+        sob medida. A loja foi entregue funcionando perfeitamente no celular e no computador, já
+        com cálculo de frete, avaliações de clientes integradas e checkout configurado e testado
+        de ponta a ponta.
+      </p>
+      <p class="case__highlight">
+        O resultado: uma loja completa no ar, do zero — com marca, design e operação prontos para
+        vender.
+      </p>
+    </div>
+
+    <div class="case__mockups">
+      <div>
+        <div class="mockup mockup--desktop">
+          <div class="mockup__bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mockup__screen mockup__screen--desktop">
+            <Image
+              src={desktopShot}
+              alt="Screenshot da loja Galiotto — desktop"
+              width={1200}
+              format="webp"
+              quality={78}
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="mockup__caption">Loja Galiotto — Desktop</div>
+      </div>
+
+      <div class="mockup__mobiles">
+        <div>
+          <div class="mockup mockup--mobile">
+            <div class="mockup__screen mockup__screen--mobile">
+              <Image
+                src={mobileShot1}
+                alt="Screenshot da loja Galiotto no celular"
+                width={336}
+                format="webp"
+                quality={78}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="mockup__caption">Mobile</div>
+        </div>
+        <div class="mockup__mobile-offset">
+          <div class="mockup mockup--mobile">
+            <div class="mockup__screen mockup__screen--mobile">
+              <Image
+                src={mobileShot2}
+                alt="Screenshot do catálogo da loja Galiotto no celular"
+                width={336}
+                format="webp"
+                quality={78}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="mockup__caption">Catálogo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case__cta">
+      <WhatsAppLink source="case" variant="outline">
+        Quero uma loja nesse nível
+        <span class="arrow">→</span>
+      </WhatsAppLink>
+    </div>
+  </div>
+</section>
+
+<style>
+  .case {
+    background: var(--color-navy);
+    color: #edf0f4;
+    padding: clamp(56px, 9vw, 104px) clamp(22px, 5vw, 56px);
+  }
+
+  .case__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .case__intro {
+    max-width: 760px;
+    margin-bottom: clamp(40px, 6vw, 60px);
+  }
+
+  .case__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4.6vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #fff;
+    text-wrap: balance;
+    margin-bottom: 24px;
+  }
+
+  .case__text {
+    font-size: clamp(15px, 1.9vw, 18px);
+    line-height: 1.7;
+    color: #c6d0dc;
+    margin-bottom: 20px;
+  }
+
+  .case__highlight {
+    font-size: clamp(15px, 1.9vw, 18px);
+    line-height: 1.7;
+    color: #fff;
+    font-weight: 500;
+    border-left: 2px solid var(--color-gold);
+    padding-left: 18px;
+  }
+
+  .case__mockups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(20px, 3vw, 32px);
+    align-items: end;
+  }
+
+  .mockup {
+    background: var(--color-navy-deep);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.7);
+  }
+
+  .mockup--desktop {
+    border-radius: 12px;
+    padding: 12px 12px 0;
+  }
+
+  .mockup__bar {
+    display: flex;
+    gap: 7px;
+    padding: 6px 4px 12px;
+  }
+  .mockup__bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .mockup__screen--desktop {
+    aspect-ratio: 16 / 10;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+  }
+  .mockup__screen--desktop :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mockup__caption {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: #93a3b6;
+  }
+
+  .mockup__mobiles {
+    display: flex;
+    gap: clamp(16px, 2.5vw, 26px);
+    justify-content: center;
+  }
+
+  .mockup__mobile-offset {
+    align-self: flex-end;
+  }
+
+  .mockup--mobile {
+    width: clamp(130px, 17vw, 168px);
+    aspect-ratio: 9 / 19;
+    border-radius: 26px;
+    padding: 9px;
+  }
+
+  .mockup__screen--mobile {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .mockup__screen--mobile :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case__cta {
+    margin-top: clamp(40px, 6vw, 56px);
+  }
+
+  .arrow {
+    font-size: 17px;
+  }
+</style>

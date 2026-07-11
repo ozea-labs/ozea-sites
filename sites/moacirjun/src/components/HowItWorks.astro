@@ -1,0 +1,142 @@
+---
+import WhatsAppLink from './WhatsAppLink.astro';
+
+const steps = [
+  {
+    number: '1',
+    title: 'Conversa de alinhamento',
+    text: 'Batemos um papo rápido para eu entender as necessidades do seu negócio, seus problemas atuais e o que você espera do projeto.',
+  },
+  {
+    number: '2',
+    title: 'Proposta com escopo fechado',
+    text: 'Envio um documento claro com o que será feito, os prazos exatos e o valor. Sem surpresas ou custos ocultos no meio do caminho.',
+    tag: null,
+  },
+  {
+    number: '3',
+    title: 'Mão na massa',
+    tag: '(50% do pagamento)',
+    text: 'Com o pagamento de entrada aprovado, o cronograma começa a rodar. Você recebe atualizações regulares do avanço do projeto.',
+  },
+  {
+    number: '4',
+    title: 'Entrega e Acompanhamento',
+    tag: '(50% finais)',
+    text: 'A loja vai para o ar. Fazemos o pagamento final e, se você desejar, ativamos o plano de manutenção para melhorias contínuas.',
+  },
+];
+---
+
+<section class="how">
+  <div class="how__inner">
+    <div class="how__intro">
+      <div class="eyebrow eyebrow--navy">Como funciona</div>
+      <h2 class="how__title">Um processo transparente, sem letras miúdas</h2>
+      <p class="how__lede">
+        Meu processo é transparente e sem letras miúdas. Você sempre sabe em que etapa estamos:
+      </p>
+    </div>
+
+    <div class="how__grid">
+      {
+        steps.map((step) => (
+          <div class="step">
+            <div class="step__number">{step.number}</div>
+            <h3 class="step__title">
+              {step.title}
+              {step.tag && <span class="step__tag">{step.tag}</span>}
+            </h3>
+            <p class="step__text">{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="how__cta">
+      <WhatsAppLink source="how-it-works" variant="solid">
+        Quero conversar sobre meu projeto
+        <span class="arrow">→</span>
+      </WhatsAppLink>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how {
+    background: var(--color-cream);
+    padding: clamp(56px, 9vw, 104px) clamp(22px, 5vw, 56px);
+  }
+
+  .how__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .how__intro {
+    max-width: 640px;
+    margin-bottom: clamp(40px, 6vw, 60px);
+  }
+
+  .how__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4.4vw, 44px);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+
+  .how__lede {
+    font-size: clamp(15px, 1.9vw, 18px);
+    color: var(--color-body);
+  }
+
+  .how__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: clamp(24px, 3vw, 36px);
+  }
+
+  .step {
+    border-top: 2px solid var(--color-gold);
+    padding-top: 22px;
+  }
+
+  .step__number {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--color-gold);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .step__tag {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .step__text {
+    font-size: 14.5px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  .how__cta {
+    margin-top: clamp(40px, 6vw, 56px);
+  }
+
+  .arrow {
+    font-size: 17px;
+  }
+</style>
