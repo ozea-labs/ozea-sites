@@ -6,7 +6,7 @@ import WhatsAppLink from './WhatsAppLink.astro';
   <div class="founder__box">
     <div class="founder__bar"></div>
     <div class="founder__content">
-      <div class="eyebrow eyebrow--gold">Condição de fundador</div>
+      <div class="eyebrow founder__eyebrow">Condição de fundador</div>
       <h2 class="founder__title">Estou abrindo agenda para projetos externos</h2>
       <p class="founder__text">
         Estou abrindo minha agenda neste momento para assumir novos projetos externos. Para os
@@ -35,6 +35,11 @@ import WhatsAppLink from './WhatsAppLink.astro';
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 clamp(22px, 5vw, 56px) clamp(56px, 9vw, 104px);
+  }
+
+  .founder__eyebrow {
+    /* darker than --color-gold: this eyebrow sits on white, needs WCAG AA */
+    color: var(--color-gold-ink);
   }
 
   .founder__box {
