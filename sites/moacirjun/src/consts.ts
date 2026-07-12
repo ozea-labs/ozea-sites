@@ -1,7 +1,7 @@
 export const SITE_NAME = 'Moacir Lima Jr';
 export const SITE_TITLE = 'Moacir Lima Jr — Especialista em E-commerce';
 export const SITE_DESCRIPTION =
-  'Desenvolvedor sênior especialista em e-commerce (Shopify, Nuvemshop, WooCommerce). Lojas profissionais prontas para vender, sem enrolação. Projetos a partir de R$ 1.800.';
+  'Lojas Shopify, Nuvemshop e WooCommerce sob medida, prontas pra vender. Projetos a partir de R$ 1.800.';
 export const SITE_URL = 'https://moacirjun.dev';
 
 export const WHATSAPP_NUMBER = '5511952832186';
